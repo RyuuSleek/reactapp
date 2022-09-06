@@ -1,3 +1,0 @@
-# Potential Ideas
-
-Enter here
