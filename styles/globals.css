@@ -27,14 +27,16 @@
   margin: 0 3px;
 }
 
-.mid1 {
-  float: left;
-  width: 620px;
-  margin: 10px auto;
+.container {
+  display: flex;
 }
 
-.mid2 {
-  float: left;
-  width: 250px;
+.main-content {
   margin: 10px auto;
+  flex: 2 1 auto;
+}
+
+.side-content {
+  margin: 10px auto;
+  flex: 1 1 auto;
 }
