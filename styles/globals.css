@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.header {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #ea7c7c;
+  color: #f4ecec;
+  padding: 25px 0;
+}
+
+.header-nav ol {
+  list-style: none;
+  width: 570px;
+  padding: 15px;
+  text-align: center;
+  margin: 10px auto;
+  border-top: 2px solid #f4ecec;
+  border-bottom: 2px solid #f4ecec;
+}
+
+.header-nav li {
+  display: inline;
+  margin: 0 3px;
+}
+
+.mid1 {
+  float: left;
+  width: 620px;
+  margin: 10px auto;
+}
+
+.mid2 {
+  float: left;
+  width: 250px;
+  margin: 10px auto;
+}
