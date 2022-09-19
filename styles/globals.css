@@ -43,6 +43,7 @@ ul {
 .container {
   display: flex;
   margin: 5% 1%;
+  min-height: 70vh;
 }
 
 .main-content {
