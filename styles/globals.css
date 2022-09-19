@@ -25,7 +25,7 @@
   margin-right: 5rem;
 }
 
-.header-nav ul {
+ul {
   list-style: none;
 }
 
@@ -42,12 +42,14 @@
 
 .container {
   display: flex;
+  margin: 5% 1%;
 }
 
 .main-content {
-  margin: 10px auto;
+  margin: 5% 2%;
   padding: 1rem;
   flex: 5 1 auto;
+  font-family: "Noto Sans", sans;
 }
 
 .side-content {
@@ -55,14 +57,32 @@
   flex: 1 1 auto;
 }
 
-footer {
+.footer {
   display: flex;
+  font-family: sans;
+  color: white;
+  background: black;
+  padding: 5% 0;
 }
 
 .contact {
   flex: 1 1 auto;
 }
 
+.mr5 {
+  margin-bottom: 5%;
+}
+
+.contact li {
+  margin: 5% auto;
+  letter-spacing: 0.3rem;
+}
+
 .socials {
   flex: 1 1 auto;
+}
+
+.socials li {
+  display: inline;
+  margin-right: 1%;
 }
