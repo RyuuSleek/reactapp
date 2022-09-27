@@ -1,0 +1,89 @@
+.header {
+  background: #5281ca;
+  display: flex;
+  align-items: center;
+  padding: 1% 5%;
+}
+
+.header-title {
+  flex: 1 1 auto;
+  margin-right: auto;
+  position: relative;
+  font-family: "Droid Sans", sans;
+  color: white;
+}
+
+.header-nav {
+  flex: 1 1 auto;
+  margin-right: 5rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.header-nav li {
+  display: inline;
+  padding: 0 5% 0 0;
+  font-family: "Roboto", "Helvetica", sans;
+  color: white;
+}
+
+.header-nav button {
+  background: inherit;
+  color: white;
+  border: none;
+  font-size: 1rem;
+}
+
+.header-nav button:hover {
+  color: yellow;
+}
+
+.home-container {
+  display: flex;
+  margin: 5% 1%;
+  min-height: 70vh;
+}
+
+.main-content {
+  margin: 5% 2%;
+  padding: 1rem;
+  flex: 5 1 auto;
+  font-family: "Noto Sans", sans;
+}
+
+.side-content {
+  margin: 10px auto;
+  flex: 1 1 auto;
+}
+
+.footer {
+  display: flex;
+  font-family: sans;
+  color: white;
+  background: black;
+  padding: 5% 0;
+}
+
+.contact {
+  flex: 1 1 auto;
+}
+
+.mr5 {
+  margin-bottom: 5%;
+}
+
+.contact li {
+  margin: 5% auto;
+  letter-spacing: 0.3rem;
+}
+
+.socials {
+  flex: 1 1 auto;
+}
+
+.socials li {
+  display: inline;
+  margin-right: 1%;
+}
