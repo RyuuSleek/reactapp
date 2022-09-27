@@ -5,26 +5,64 @@ import insta from "./content/pictures/instagram.png";
 import twit from "./content/pictures/twitter.png";
 import locat from "./content/pictures/Location.png";
 
-function HeaderTop() {
+class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { page: "Home" };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(page) {
+    this.setState({ page: page });
+  }
+
+  render() {
+    return (
+      <>
+        <HeaderTop onChange={this.handleChange} />
+        <Container page={this.state.page} />
+        <FooterBot />
+      </>
+    );
+  }
+}
+
+class Container extends React.Component {
+  render() {
+    if (this.props.page === "Home") {
+      return <Home />;
+    } else if (this.props.page === "Visit") {
+      return <Visit />;
+    }
+  }
+}
+
+function Visit() {
+  return <p>Visit goes here!</p>;
+}
+
+function HeaderTop(props) {
   return (
     <div className="header">
       <div className="header-title">
-        <h1>Pizza Palace</h1>{" "}
+        <button type="button" onClick={() => props.onChange("Home")}>
+          Pizza Palace
+        </button>
       </div>
       <div className="header-nav">
         <ul>
           <li>
-            <button type="button" onclick="visit()">
+            <button type="button" onClick={() => props.onChange("Visit")}>
               Visit
             </button>
           </li>
           <li>
-            <button type="button" onclick="menu()">
+            <button type="button" onClick={() => props.onChange("Menu")}>
               Menu
             </button>
           </li>
           <li>
-            <button type="button" onclick="premium()">
+            <button type="button" onClick={() => props.onChange("Premium")}>
               Premium
             </button>
           </li>
@@ -36,16 +74,16 @@ function HeaderTop() {
 
 function FooterBot() {
   return (
-    <div class="footer">
-      <div class="contact">
-        <h3 class="mr5">Contacts</h3>
+    <div className="footer">
+      <div className="contact">
+        <h3 className="mr5">Contacts</h3>
         <ul>
           <li>RyuuSleek</li>
           <li>Kakkarot0</li>
         </ul>
       </div>
-      <div class="socials">
-        <h3 class="mr5">Social</h3>
+      <div className="socials">
+        <h3 className="mr5">Social</h3>
         <ul>
           <li>
             <img src={discord} />
@@ -64,8 +102,8 @@ function FooterBot() {
 
 function Home() {
   return (
-    <div class="home-container">
-      <div class="main-content">
+    <div className="home-container">
+      <div className="main-content">
         <p>
           A trendy new place to eat all kinds of foods. The idea behind this
           restaurant came when we considered the possibility of serving all
@@ -76,25 +114,15 @@ function Home() {
         <br />
         <p>Some new paragraph.</p>
       </div>
-      <div class="side-content">
+      <div className="side-content">
         <img src={locat} />
       </div>
     </div>
   );
 }
 
-function Container() {
-  return <Home />;
-}
-
 function App() {
-  return (
-    <div>
-      <HeaderTop />
-      <Container />
-      <FooterBot />
-    </div>
-  );
+  return <Main />;
 }
 
 export default App;

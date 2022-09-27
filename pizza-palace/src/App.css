@@ -13,6 +13,14 @@
   color: white;
 }
 
+.header-title button {
+  font-family: "Droid Sans", sans;
+  color: white;
+  background: inherit;
+  font-size: 1.8rem;
+  border: none;
+}
+
 .header-nav {
   flex: 1 1 auto;
   margin-right: 5rem;
