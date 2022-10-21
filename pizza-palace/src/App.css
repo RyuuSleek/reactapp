@@ -95,3 +95,15 @@ ul {
   display: inline;
   margin-right: 1%;
 }
+
+/* Menu CSS */
+.MenuRow {
+  display: flex;
+}
+
+.MenuEle {
+  flex: 1 1;
+  margin: 1%;
+  border: thin solid blue;
+  border-radius: 0.3rem;
+}

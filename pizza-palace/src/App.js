@@ -33,12 +33,52 @@ class Container extends React.Component {
       return <Home />;
     } else if (this.props.page === "Visit") {
       return <Visit />;
+    } else if (this.props.page === "Menu") {
+      return <Menu />;
     }
   }
 }
 
 function Visit() {
-  return <p>Visit goes here!</p>;
+  return (
+    <div className="Resevartion">
+      <button
+        type="button"
+        title="This does not gurantee seats. It's applicable on the people at the moment."
+      >
+        Apply
+      </button>
+    </div>
+  );
+}
+
+function Menu() {
+  // menu goes here
+  return (
+    <div class="MenuRow">
+      <MenuEle
+        title="Veg Pizza"
+        description="THE Pizza for the all the vegetarians out there."
+      />
+      <MenuEle
+        title="Chicken Pizza"
+        description="Chicken pizza for the lovers of meat."
+      />
+      <MenuEle
+        title="Cheese Pizza"
+        description="Filled with two kinds of cheese: Mozzarella, Parmesan"
+      />
+    </div>
+  );
+}
+
+function MenuEle(props) {
+  return (
+    <div class="MenuEle">
+      <h3>{props.title}</h3>
+      <p>{props.description}</p>
+    </div>
+  );
 }
 
 function HeaderTop(props) {
