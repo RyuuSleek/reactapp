@@ -52,33 +52,60 @@ function Visit() {
   );
 }
 
-function Menu() {
-  // menu goes here
-  return (
-    <div class="MenuRow">
-      <MenuEle
-        title="Veg Pizza"
-        description="THE Pizza for the all the vegetarians out there."
-      />
-      <MenuEle
-        title="Chicken Pizza"
-        description="Chicken pizza for the lovers of meat."
-      />
-      <MenuEle
-        title="Cheese Pizza"
-        description="Filled with two kinds of cheese: Mozzarella, Parmesan"
-      />
-    </div>
-  );
+class Menu extends React.Component {
+  // implement callback
+  render() {
+    return (
+      <div class="MenuRow">
+        <MenuEle
+          title="Veg Pizza"
+          description="THE Pizza for the all the vegetarians out there."
+        />
+        <MenuEle
+          title="Chicken Pizza"
+          description="Chicken pizza for the lovers of meat."
+        />
+        <MenuEle
+          title="Cheese Pizza"
+          description="Filled with two kinds of cheese: Mozzarella, Parmesan"
+        />
+      </div>
+    );
+  }
 }
 
-function MenuEle(props) {
-  return (
-    <div class="MenuEle">
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
-    </div>
-  );
+class MenuEle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      is_clicked: false,
+    };
+  }
+
+  clicked() {
+    return (
+      <div className="MenuEle-focused">
+        <h3>{this.props.title}</h3>
+        <p>{this.props.description}</p>
+      </div>
+    );
+  }
+
+  render() {
+    if (this.state.is_clicked) {
+      return this.clicked();
+    } else {
+      return (
+        <div
+          className="MenuEle"
+          onClick={() => this.setState({ is_clicked: true })}
+        >
+          <h3>{this.props.title}</h3>
+          <p>{this.props.description}</p>
+        </div>
+      );
+    }
+  }
 }
 
 function HeaderTop(props) {

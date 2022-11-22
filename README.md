@@ -6,10 +6,10 @@ Web Application with React
 
 To run the web app locally:
 
-- Clone the repo
-- Go to the pizza-place directory
-- Run `npm update`. This will install the dependencies
-- Run `npm start`. This will automatically open a new tab with the web app.
+1. Clone the repo
+2. Go to the pizza-place directory
+3. Run `npm update`. This will install the dependencies
+4. Run `npm start`. This will automatically open a new tab with the web app.
 
 ## Restaurant
 

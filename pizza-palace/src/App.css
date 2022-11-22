@@ -107,3 +107,13 @@ ul {
   border: thin solid blue;
   border-radius: 0.3rem;
 }
+
+.MenuEle-focused {
+  position: absolute;
+  top: 15%;
+  bottom: 15%;
+  left: 25%;
+  right: 25%;
+  background: grey;
+  border: none;
+}
