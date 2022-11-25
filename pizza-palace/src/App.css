@@ -71,7 +71,7 @@ ul {
   font-family: sans;
   color: white;
   background: black;
-  padding: 5% 0;
+  padding: 2% 0;
 }
 
 .contact {
@@ -97,8 +97,11 @@ ul {
 }
 
 /* Menu CSS */
-.MenuRow {
+.Menu {
   display: flex;
+  margin: 5% 1%;
+  min-height: 70vh;
+  align-items: start;
 }
 
 .MenuEle {
@@ -110,10 +113,42 @@ ul {
 
 .MenuEle-focused {
   position: absolute;
-  top: 15%;
-  bottom: 15%;
+  top: 20%;
+  bottom: 25%;
   left: 25%;
+  border: thin solid black;
   right: 25%;
   background: grey;
-  border: none;
+  background: azure;
+  padding-top: 1em;
+}
+
+.focused-detail {
+  display: flex;
+}
+
+.focused-image {
+  flex: 1 1 0;
+  overflow: hidden;
+}
+
+.focused-image img {
+  width: 80%;
+  height: 80%;
+  border: thin solid black;
+}
+
+.focused-description {
+  flex: 1 1 0;
+}
+
+.focused-description h3 {
+  font-size: 1.5em;
+}
+
+.exit {
+  background: red;
+  padding: 0.3em 0.3em;
+  font-size: 1.1em;
+  border: inherit;
 }

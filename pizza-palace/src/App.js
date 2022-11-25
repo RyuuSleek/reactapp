@@ -41,7 +41,7 @@ class Container extends React.Component {
 
 function Visit() {
   return (
-    <div className="Resevartion">
+    <div className="Reservation">
       <button
         type="button"
         title="This does not gurantee seats. It's applicable on the people at the moment."
@@ -53,59 +53,112 @@ function Visit() {
 }
 
 class Menu extends React.Component {
-  // implement callback
-  render() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      is_focused: false,
+    };
+    this.info = {};
+  }
+
+  render_element(info) {
     return (
-      <div class="MenuRow">
-        <MenuEle
-          title="Veg Pizza"
-          description="THE Pizza for the all the vegetarians out there."
-        />
-        <MenuEle
-          title="Chicken Pizza"
-          description="Chicken pizza for the lovers of meat."
-        />
-        <MenuEle
-          title="Cheese Pizza"
-          description="Filled with two kinds of cheese: Mozzarella, Parmesan"
-        />
-      </div>
+      <MenuEle
+        title={info.title}
+        description={info.description}
+        image={info.image}
+        onClick={() => this.handleClick(info)}
+      />
     );
+  }
+
+  handleClick(info) {
+    this.info = {
+      title: info.title,
+      description: info.description,
+      image: "https://via.placeholder.com/640x360/",
+    };
+    this.setState({ is_focused: true });
+  }
+
+  exit() {
+    this.setState({ is_focused: false });
+  }
+
+  render() {
+    if (this.state.is_focused) {
+      return (
+        <div className="Menu">
+          {this.render_element({
+            title: "Veg Pizza",
+            description: "THE pizza for all the vegetarians out there.",
+          })}
+          {this.render_element({
+            title: "Chicken Pizza",
+            description: "Chicken pizza for the lovers of meat.",
+          })}
+          {this.render_element({
+            title: "Cheese Pizza",
+            description:
+              "Filled with two kinds of cheese: Mozzarella, Parmesan",
+          })}
+          <MenuEleFocused info={this.info} exit={() => this.exit()} />
+        </div>
+      );
+    } else {
+      return (
+        <div className="Menu">
+          {this.render_element({
+            title: "Veg Pizza",
+            description: "THE pizza for all the vegetarians out there.",
+          })}
+          {this.render_element({
+            title: "Chicken Pizza",
+            description: "Chicken pizza for the lovers of meat.",
+          })}
+          {this.render_element({
+            title: "Cheese Pizza",
+            description:
+              "Filled with two kinds of cheese: Mozzarella, Parmesan",
+          })}
+        </div>
+      );
+    }
   }
 }
 
 class MenuEle extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      is_clicked: false,
-    };
   }
 
-  clicked() {
+  render() {
     return (
-      <div className="MenuEle-focused">
+      <div className="MenuEle" onClick={() => this.props.onClick()}>
         <h3>{this.props.title}</h3>
         <p>{this.props.description}</p>
       </div>
     );
   }
+}
 
-  render() {
-    if (this.state.is_clicked) {
-      return this.clicked();
-    } else {
-      return (
-        <div
-          className="MenuEle"
-          onClick={() => this.setState({ is_clicked: true })}
-        >
-          <h3>{this.props.title}</h3>
-          <p>{this.props.description}</p>
+function MenuEleFocused(props) {
+  return (
+    <div className="MenuEle-focused">
+      <div className="focused-detail">
+        <div className="focused-image">
+          <img src={props.info.image} />
         </div>
-      );
-    }
-  }
+        <div className="focused-description">
+          <h3>{props.info.title}</h3>
+          <p>{props.info.description}</p>
+        </div>
+      </div>
+      <button className="exit" onClick={() => props.exit()}>
+        Exit
+      </button>
+    </div>
+  );
 }
 
 function HeaderTop(props) {
