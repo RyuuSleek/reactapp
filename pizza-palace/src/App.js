@@ -44,7 +44,7 @@ function Visit() {
     <div className="Reservation">
       <button
         type="button"
-        title="This does not gurantee seats. It's applicable on the people at the moment."
+        title="This does not guarantee seats. It's applicable on the people at the moment."
       >
         Apply
       </button>
@@ -68,7 +68,7 @@ class Menu extends React.Component {
       .then((data) => this.setState({ menu: data }));
   }
 
-  render_element() {
+  render_elements() {
     return (
       <>
         {this.state.menu.map((row) => (
@@ -100,12 +100,12 @@ class Menu extends React.Component {
     if (this.state.is_focused) {
       return (
         <div className="Menu">
-          {this.render_element()}
+          {this.render_elements()}
           <MenuEleFocused info={this.info} exit={() => this.exit()} />
         </div>
       );
     } else {
-      return <div className="Menu">{this.render_element()}</div>;
+      return <div className="Menu">{this.render_elements()}</div>;
     }
   }
 }
@@ -222,11 +222,6 @@ function Home() {
       </div>
     </div>
   );
-}
-
-async function getMenu() {
-  let data = await fetch("/users").then((response) => response.json());
-  return data;
 }
 
 function App() {
