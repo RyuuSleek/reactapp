@@ -98,14 +98,11 @@ ul {
 
 /* Menu CSS */
 .Menu {
-  display: flex;
-  margin: 5% 1%;
+  margin: 5% 5%;
   min-height: 70vh;
-  align-items: start;
 }
 
 .MenuEle {
-  flex: 1 1;
   margin: 1%;
   border: thin solid blue;
   border-radius: 0.3rem;

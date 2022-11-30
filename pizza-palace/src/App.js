@@ -57,18 +57,29 @@ class Menu extends React.Component {
     super(props);
     this.state = {
       is_focused: false,
+      menu: [],
     };
     this.info = {};
   }
 
-  render_element(info) {
+  componentDidMount() {
+    fetch("/users")
+      .then((res) => res.json())
+      .then((data) => this.setState({ menu: data }));
+  }
+
+  render_element() {
     return (
-      <MenuEle
-        title={info.title}
-        description={info.description}
-        image={info.image}
-        onClick={() => this.handleClick(info)}
-      />
+      <>
+        {this.state.menu.map((row) => (
+          <MenuEle
+            title={row.title}
+            description={row.description}
+            image="https://via.placeholder.com/640x360/"
+            onClick={() => this.handleClick(row)}
+          />
+        ))}
+      </>
     );
   }
 
@@ -89,40 +100,12 @@ class Menu extends React.Component {
     if (this.state.is_focused) {
       return (
         <div className="Menu">
-          {this.render_element({
-            title: "Veg Pizza",
-            description: "THE pizza for all the vegetarians out there.",
-          })}
-          {this.render_element({
-            title: "Chicken Pizza",
-            description: "Chicken pizza for the lovers of meat.",
-          })}
-          {this.render_element({
-            title: "Cheese Pizza",
-            description:
-              "Filled with two kinds of cheese: Mozzarella, Parmesan",
-          })}
+          {this.render_element()}
           <MenuEleFocused info={this.info} exit={() => this.exit()} />
         </div>
       );
     } else {
-      return (
-        <div className="Menu">
-          {this.render_element({
-            title: "Veg Pizza",
-            description: "THE pizza for all the vegetarians out there.",
-          })}
-          {this.render_element({
-            title: "Chicken Pizza",
-            description: "Chicken pizza for the lovers of meat.",
-          })}
-          {this.render_element({
-            title: "Cheese Pizza",
-            description:
-              "Filled with two kinds of cheese: Mozzarella, Parmesan",
-          })}
-        </div>
-      );
+      return <div className="Menu">{this.render_element()}</div>;
     }
   }
 }
@@ -239,6 +222,11 @@ function Home() {
       </div>
     </div>
   );
+}
+
+async function getMenu() {
+  let data = await fetch("/users").then((response) => response.json());
+  return data;
 }
 
 function App() {
